@@ -1,0 +1,35 @@
+﻿@page "/login"
+@page "/login/{ErrorMessage}"
+@inject NavigationManager navigationManager
+@attribute [AllowAnonymous]
+
+<h3 class=" fs-6 fw-bold text-capitalize" style="color:purple">Aplicación creada por: Seydi Johana Lara Fuentes-20201003422</h3>
+<br />
+<h3 class="text-center fw-bold" style="color:purple" >Login</h3>
+
+@if (ErrorMessage != null)
+{
+    <div class="text-danger">@ErrorMessage</div>
+}
+
+<form method="post" action="/account/login">
+    <div class="form-group ">
+        <label  class="fw-bold"  >Usuario:</label>
+        <input type="text" name="Codigo" class="form-control col-sm-6 col-md-4  fw-bold"  style="color:purple;" />
+    </div>
+    <h3></h3>
+    <div class="form-group">
+        <label class="fw-bold">Clave:</label>
+        <input type="password" name="Clave" class="form-control col-sm-6 col-md-4 fw-bold" style="color:purple;" />
+    </div>
+    <br />
+    <button class="btn btn-outline-dark  fw-bold"   >Entrar</button>
+
+   
+
+</form>
+
+
+@code {
+    [Parameter] public string ErrorMessage { get; set; }
+}
